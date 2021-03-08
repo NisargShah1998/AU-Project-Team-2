@@ -1,23 +1,39 @@
 package com.au.discussionforum.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 	@Id
-	private int userid;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userId;
 	private String email;
 	private String password;
 	private String username;
 	private String photo;
 
-	public int getUserid() {
-		return userid;
+	public User(int userId, String email, String password, String username, String photo) {
+		super();
+		this.userId = userId;
+		this.email = email;
+		this.password = password;
+		this.username = username;
+		this.photo = photo;
+	}
+	
+	public User() {
+		
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -54,7 +70,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", email=" + email + ", password=" + password + ", username=" + username
+		return "User [userid=" + userId + ", email=" + email + ", password=" + password + ", username=" + username
 				+ ", photo=" + photo + "]";
 	}
 	
