@@ -23,14 +23,27 @@ class TopicServiceTest {
 	
 	@Test
 	
-	public void getTopicByIdTest() {
+	void getTopicByIdTest() {
 		
 		int topic_id=2;
-		Topic topic= new Topic(2,"games");
+		Topic topic= new Topic();
+		topic.setTopicId(2);
+		topic.setTopicName("games");
 		
 		when(topicRepository.findByTopicId(topic_id)).thenReturn(topic);
 		assertEquals(2,topicService.getTopicById(topic_id).getTopicId());
 		
+		@SuppressWarnings("unused")
+		Topic topic1= new Topic(topic.getTopicId(),topic.getTopicName());
+	}
+	
+	@Test
+	void getTopicByNameTest() {
+		String topic_name = "Badminton";
+		Topic topic = new Topic(1,"Badminton");
+		
+		when(topicRepository.findByTopicName(topic_name)).thenReturn(topic);
+		assertEquals("Badminton",topicService.getTopicByName(topic_name).getTopicName());
 	}
 
 }
