@@ -1,22 +1,24 @@
-<div class ="backg">
-<div class="login-box">
-    <h2>Login</h2>
+<div class="backg">
+  <div class="login-box">
+    <h2><em>LOGIN</em></h2>
     <form>
       <div class="user-box">
         <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
-        <label>Username</label>
+        <label style="font-size:small;">Username<br></label>
       </div>
       <div class="user-box">
         <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-        <label>Password</label>
+        <label style="font-size:small;">Password<br></label>
       </div>
-      <span class="error">{{err}}</span>
+      <span style="color: red;" class="error">{{err}}</span><br>
       <a (click)='loggedIn()'>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Submit
+        Signin
+      </a>
+      <br>
+      <br>
+      <br>
+      <a (click)='signUp()'>
+        SignUp
       </a>
     </form>
   </div>
